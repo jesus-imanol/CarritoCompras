@@ -201,14 +201,15 @@ public class Main {
         }
         return estado;
     }
-    private static void cartValidado(){
+private static void cartValidado(){
         ArrayList<Carrito> list;
         list=referenciaPago.getCart();
         int idSearch;
         boolean flag=false;
+        System.out.println("Ingrese el id de su carrito para saber estatus: ");
+        idSearch= keyboard.nextInt();
         for (int i = 0; i < list.size() && !flag; i++) {
-            System.out.println("Ingrese el id de su carrito para saber estatus: ");
-            idSearch= keyboard.nextInt();
+
             if(list.get(i).getId()==idSearch){
                 flag=true;
                 if (list.get(i).isStatusCart()==true){
@@ -219,10 +220,10 @@ public class Main {
                     System.out.println("El carrito no esta validado");
                 }
             }
-            else {
-                System.out.println("No se encontró ningun carrito");
-                flag=true;
-            }
+
+        }
+        if(!flag){
+            System.out.println("No se encontró ningun carrito");
         }
     }
     private static void solicitarPago(Carrito carrito) {
